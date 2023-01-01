@@ -3,9 +3,11 @@
 
 Playable on [itch.io](https://tinyevilwizard.itch.io/freezing-knights), [Lexaloffle BBS](https://www.lexaloffle.com/bbs/?tid=50683) and [Newgrounds](https://www.newgrounds.com/portal/view/867560).
 
+Soundtrack by OhCurtains available on [Bandcamp](https://ohhcurtains.bandcamp.com/album/freezing-knights).
+
 ### Authors
 - Game by [tinyevilwizard](https://twitter.com/tinyevilwizard)
-- Music and OhCurtains intro by [ohcurtains](https://twitter.com/ohhcurtains)
+- Music and OhCurtains intro by [OhCurtains](https://twitter.com/ohhcurtains)
 
 ### Running the carts
 Run the carts from the `src` folder instead of root. That way, the carts can find each others.
@@ -37,11 +39,13 @@ Music is not shared between carts because they each contain a different track.
 ### Exporting
 #### Binary application
 1. Go to the `src` folder
-2. Run `export freezing_knights.bin start.p8 map.p8 rest.p8 ending.p8 battle1.p8 battle2.p8 battle3.p8 boss1.p8 boss2.p8 boss3.p8 boss4.p8 boss5.p8 boss6.p8 boss7.p8`
+2. Load `start.p8`
+3. Run `export freezing_knights.bin start.p8 map.p8 rest.p8 ending.p8 battle1.p8 battle2.p8 battle3.p8 boss1.p8 boss2.p8 boss3.p8 boss4.p8 boss5.p8 boss6.p8 boss7.p8`
 
 #### Web application
 1. Go to the `src` folder
-2. Run `export -f freezing_knights.html start.p8 map.p8 rest.p8 ending.p8 battle1.p8 battle2.p8 battle3.p8 boss1.p8 boss2.p8 boss3.p8 boss4.p8 boss5.p8 boss6.p8 boss7.p8`
+2. Load `start.p8`
+3. Run `export -f freezing_knights.html start.p8 map.p8 rest.p8 ending.p8 battle1.p8 battle2.p8 battle3.p8 boss1.p8 boss2.p8 boss3.p8 boss4.p8 boss5.p8 boss6.p8 boss7.p8`
 
 #### BBS .png
 1. Go to the `src` folder
