@@ -52,4 +52,4 @@ Music is not shared between carts because they each contain a different track.
 2. Load each cart and type `save [cart name].png`
 
 ### License
-[CC4-BY-NC-SA](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
