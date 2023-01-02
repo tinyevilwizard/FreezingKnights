@@ -5,6 +5,8 @@ Playable on [itch.io](https://tinyevilwizard.itch.io/freezing-knights), [Lexalof
 
 Soundtrack by OhCurtains available on [Bandcamp](https://ohhcurtains.bandcamp.com/album/freezing-knights).
 
+![freezing_knight_store_battle3](https://user-images.githubusercontent.com/31799336/210188996-3cae9ec1-2b07-4171-ab0c-e9fca4b98720.gif)
+
 ### Authors
 - Game by [tinyevilwizard](https://twitter.com/tinyevilwizard)
 - Music and OhCurtains intro by [OhCurtains](https://twitter.com/ohhcurtains)
