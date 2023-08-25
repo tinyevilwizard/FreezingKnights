@@ -1,4 +1,4 @@
-load_mode,version=1,"V1.1.0"  --1 for .p8 files, 2 for BBS cart ID
+load_mode,version=1,"V1.2.0"  --1 for .p8 files, 2 for BBS cart ID
 f,t,potion_char,money_char=false,true,"\^:3e1c3a3e3e000000","\^:1c323a3e1c000000"
 
 menuitem(1,"main menu",function() load_cart"start" end)
