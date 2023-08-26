@@ -49,7 +49,7 @@ acns.final_boss_spell=function(act)
 end
 
 acns.final_boss_shadows=function(act)
-  local a,previous_shadows_target,next_shadows_target=new_acn(act,8,"shadows"),ply1,ply2
+  local a,previous_shadows_target,next_shadows_target=new_acn(act,4,"shadows"),ply1,ply2
   a.spawn_shadows=function()
     new_enm_acn_projectile(act,183,new_spd"2|0.1|0.02",next_shadows_target,"idle$999,55|223,20|222,10|221,1000",nil,nil,nil,f,nil,final_boss_pal_fn)
     new_enm_acn_projectile(act,183,new_spd"2|0.1|0.02",previous_shadows_target,"idle$999,1000$t",nil,nil,nil,f,function(self)
