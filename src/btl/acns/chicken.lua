@@ -28,7 +28,7 @@ acns.give_potions=function(act)
   end
 
   a.add_potions=function(act)
-    potions=max_potions
+    if (potions<=max_potions) potions=max_potions
     sfx"60"
     act:set_acn_acc(new_obj(
       function()
