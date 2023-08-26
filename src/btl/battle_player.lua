@@ -61,7 +61,7 @@ function new_btl_ply(btn,btn_lbl,player,player_pal,acns_data,args)
   end
   a.start_turn=function(self)
     if self.dead then
-      end_turn()
+      btl_start_next_turn()
     else
       self.choosing=t
       self:new_actions_menu()

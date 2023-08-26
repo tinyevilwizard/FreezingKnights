@@ -159,10 +159,6 @@ function ply_defending()
   return btl_turn_act() and btl_turn_act().type=="enm"
 end
 
-function end_turn()
-  return btl_start_next_turn()
-end
-
 function handle_death()
   if #enm_acts()==0 then
     btl_ended=t

@@ -180,7 +180,7 @@ function new_btl_act(args)
     end,
     start_turn=function(self)
       if self.dead then
-        end_turn()
+        btl_start_next_turn()
       else
         new_delayed_event(60,function()
           self:exe_rnd_acn()
@@ -191,7 +191,7 @@ function new_btl_act(args)
       if (not self.dead) self:play_anim"idle"
       self.acting=f
       self:decrement_mods()
-      end_turn()
+      btl_start_next_turn()
     end,
     exe_rnd_acn=function(self)
       self.selected_acn=rnd(self.acns)
