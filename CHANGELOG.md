@@ -7,6 +7,7 @@
 - Increased hp limit to 30 in hard mode
 - Added ability to return to previous safe zone in world map, which allows players to farm for gold
 - Reduced damage dealt by final boss shadows
+- Removed losing health from action after killing the last enemy
 
 ### Version 1.1.0 - December 29, 2022
 - Added skip tutorial option

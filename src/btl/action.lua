@@ -67,7 +67,7 @@ function new_acn(act,pwr,anim,act_set,return_after)
   end
 
   acn.pay_cost,acn.available,acn.set_done_acting=function(self)
-    if (self.cost>0) act:take_dmg(self.cost,t)
+    if (self.cost>0 and not btl_ended) act:take_dmg(self.cost,t)
   end,function(self)
     return self.cost<=0 or act.active_sts.hp>=self.cost
   end,function(act)
