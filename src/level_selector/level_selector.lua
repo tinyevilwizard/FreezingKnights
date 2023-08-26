@@ -6,18 +6,22 @@ level_selector={
     self.current_level_id=dget"18"
     fade_in(20)
     self.selectable_levels={}
+    self.current_level=levels[self.current_level_id]
+    self.last_rest_level=dget"19" != 0 and levels[dget"19"]
+
     for level in all(unordered_levels) do
       if level.id<=self.current_level_id then
         local mark_as_cleared=t
-        if levels[self.current_level_id].cleared_exceptions_ids then
-          for id in all(levels[self.current_level_id].cleared_exceptions_ids) do
+        if self.current_level.cleared_exceptions_ids then
+          for id in all(self.current_level.cleared_exceptions_ids) do
             if (level.id==id) mark_as_cleared=f
           end
         end
         if (mark_as_cleared) mset(level.x,level.y,145)
       end
     end
-    for id in all(levels[self.current_level_id].next_ids) do
+
+    for id in all(self.current_level.next_ids) do
       local level=levels[id]
       add(self.selectable_levels,level)
       if level.type==type_rest then
@@ -33,7 +37,14 @@ level_selector={
         mset(level.x+1,level.y+1,209)
       end
     end
-    self.selectable_levels=unordered_levels -- Uncomment to unable selecting any level
+
+    if self.last_rest_level and (self.current_level.id!=road2_3 and self.current_level.id!=road5_6 and self.current_level.id!=road6b_6) then
+      add(self.selectable_levels,self.last_rest_level)
+      mset(self.last_rest_level.x,self.last_rest_level.y,184)
+    end
+
+    --self.selectable_levels=unordered_levels -- Uncomment to enable selecting any level
+
     fade_in(20,function()
       new_delayed_event(20, function()
         self:start()
@@ -81,22 +92,22 @@ level_selector={
 
     center_print("SELECT DESTINATION",4,1)
 
-    if (levels[self.current_level_id].chars_reversed) then
+    if (self.current_level.chars_reversed) then
       self:draw_reverse_players()
     else
       self:draw_players()
     end
 
-    if (self.menu) self.menu:draw()
-
     snow_con:draw()
 
-    if levels[self.current_level_id].corruption_y_base then
+    if self.current_level.corruption_y_base then
       self:draw_corruption()
     end
+
+    if (self.menu) self.menu:draw()
   end,
   draw_players=function(self)
-    local current_level=levels[self.current_level_id]
+    local current_level=self.current_level
     if current_level then
       spr(171,current_level.x*8-8,current_level.y*8-17,3,2)
       set_ply_colors(self.ply1_pal)
@@ -107,7 +118,7 @@ level_selector={
     end
   end,
   draw_reverse_players=function(self)
-    local current_level=levels[self.current_level_id]
+    local current_level=self.current_level
     if current_level then
       spr(226,current_level.x*8-8,current_level.y*8+9,3,2)
       set_ply_colors(self.ply1_pal)
@@ -120,7 +131,7 @@ level_selector={
   draw_corruption=function(self)
     pal(5,0)
     self.corruption_anim_t=(self.corruption_anim_t+1)%120
-    local base_y,anim_offset=levels[self.current_level_id].corruption_y_base,self.corruption_anim_t>=60 and 1 or 0
+    local base_y,anim_offset=self.current_level.corruption_y_base,self.corruption_anim_t>=60 and 1 or 0
     for y=0,5 do
       for x=-1,3 do
         spr((x+y+anim_offset)%2==0 and 68 or 64,32*(x+(y%2==0 and 0.5 or 0)),16*y+base_y,4,4)
