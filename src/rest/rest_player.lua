@@ -227,7 +227,7 @@ function new_rest_player(name,player,player_pal,max_hp,acns_data,args,last_ply)
     local x=7
 
     ptn_increase_cost=30
-    max_total_ptn=dget"16">=1 and 10 or 15
+    max_total_ptn=dget"16">=1 and 10 or 20
     add(actions,{icon=29,hint="buy upgrade: potions ○ "..ptn_increase_cost..money_char,desc1="iNCREASES THE MAX AMOUNT OF",desc2=potion_char..". "..potion_char.." ARE REFILLED WHEN",desc3="REACHING A REST AREAS.",btn_x=x,sold_out=function() return rst.max_potions >= max_total_ptn end,available=function() return rst.gold>=ptn_increase_cost end,event=function()
       pay_cost(ptn_increase_cost)
       increase_max_potions()
@@ -235,7 +235,7 @@ function new_rest_player(name,player,player_pal,max_hp,acns_data,args,last_ply)
     x+=16
 
     max_hp_increase_cost=15
-    max_hp_limit=dget"16">=1 and 25 or 40
+    max_hp_limit=dget"16">=1 and 30 or 50
     add(actions,{icon=13,hint="buy upgrade: health ○ "..max_hp_increase_cost..money_char,desc1="iNCREASES "..name.."'S MAX",desc2="AMOUNT OF ♥. ♥ ARE RESTORED",desc3="AFTER AN ENCOUNTER.",btn_x=x,sold_out=function() return self.max_hp>=max_hp_limit end,available=function() return rst.gold>=max_hp_increase_cost end,event=function()
       pay_cost(max_hp_increase_cost)
       self.max_hp=min(max_hp_limit,self.max_hp+5)
