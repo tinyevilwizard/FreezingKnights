@@ -50,16 +50,13 @@ function btl_draw()
   btl_draw_objects()
   snow_con:draw()
 
-  --ply stats
   draw_ply_sts(3,ply1)
   draw_ply_sts(27,ply2)
 
-  --money stats
   sm_tb(99,117,124,1)
   ? money_char,101,118,9
   ? f_num(gold,t),110,118,7
 
-  --potion stats
   sm_tb(75,117,96,1)
   ? potion_char,77,118,14
   ? f_num(potions),86,118,potions >= max_potions and 15 or 7
@@ -71,7 +68,7 @@ function btl_draw()
   if show_game_over then
     cls()
     ?"game over",47,50,7
-    ?confirm_btn_lbl.." rETRY",49,70
+    ?confirm_btn_lbl.." rETRY (+2"..potion_char..")",34,70
     ?cancel_btn_lbl.." mAIN MENU",40,80
   end
 end
@@ -107,10 +104,10 @@ function btl_draw_objects()
   local accs=accs()
   local sorted_objs=clone(merge(acts,accs,map_accs))
   sort(sorted_objs, function(a,b) return a.pos.y<b.pos.y end)
-  draw_actor_section(sorted_objs,"draw_sdw")
-  draw_actor_section(sorted_objs,"draw")
-  draw_actor_section(sorted_objs,"draw_status_effects")
-  draw_actor_section(sorted_objs,"draw_dmg_lbl")
+  draw_act_sec(sorted_objs,"draw_sdw")
+  draw_act_sec(sorted_objs,"draw")
+  draw_act_sec(sorted_objs,"draw_status_effects")
+  draw_act_sec(sorted_objs,"draw_dmg_lbl")
 end
 
 function btl_turn_act()
@@ -181,11 +178,12 @@ function handle_death()
       music(-1,1000)
       fade_in()
       show_game_over=t
+      dset(59,dget"59"+2)
     end)
   end
 end
 
-function draw_actor_section(acts,draw_fn)
+function draw_act_sec(acts,draw_fn)
   for act in all(acts) do
     if (act[draw_fn]) act[draw_fn](act)
   end

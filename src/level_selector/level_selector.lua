@@ -33,7 +33,7 @@ level_selector={
         mset(level.x+1,level.y+1,209)
       end
     end
-    --self.selectable_levels=unordered_levels -- Uncomment to unable selecting any level
+    self.selectable_levels=unordered_levels -- Uncomment to unable selecting any level
     fade_in(20,function()
       new_delayed_event(20, function()
         self:start()
