@@ -42,15 +42,14 @@ Music and SFXs 0 to 52 are not shared between carts, as they each contain a diff
 #### Binary application
 1. Go to the `src` folder
 2. Load `start.p8`
-3. Run `export freezing_knights.bin start.p8 map.p8 rest.p8 ending.p8 battle1.p8 battle2.p8 battle3.p8 boss1.p8 boss2.p8 boss3.p8 boss4.p8 boss5.p8 boss6.p8 boss7.p8`
+3. Run `export freezing_knights.bin map.p8 rest.p8 ending.p8 battle1.p8 battle2.p8 battle3.p8 boss1.p8 boss2.p8 boss3.p8 boss4.p8 boss5.p8 boss6.p8 boss7.p8`
 
 #### Web application
 1. Go to the `src` folder
 2. Load `start.p8`
-3. Run `export -f freezing_knights.html start.p8 map.p8 rest.p8 ending.p8 battle1.p8 battle2.p8 battle3.p8 boss1.p8 boss2.p8 boss3.p8 boss4.p8 boss5.p8 boss6.p8 boss7.p8`
+3. Run `export -f freezing_knights.html map.p8 rest.p8 ending.p8 battle1.p8 battle2.p8 battle3.p8 boss1.p8 boss2.p8 boss3.p8 boss4.p8 boss5.p8 boss6.p8 boss7.p8`
 
 #### BBS .png
-_(Not recommended unless uploading 10+ carts to the Lexaloffle BBS sounds fun to you)_
 1. Go to the `src` folder
 2. Load each cart and type `save freezing_knights_[cart name].png`
 

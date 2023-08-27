@@ -33,7 +33,7 @@ enms[400]=function(args)
     if (not self.dead) self:play_anim"idle"
     self.acting=f
     if (self.played_second_turn) self:decrement_mods()
-    end_turn()
+    btl_start_next_turn()
   end
   a.shoot_spell=function(self)
     new_enm_acn_projectile(self,183,new_spd"4|0.1|0.05",rnd{ply1,ply2},"idle$204,5|204,5|206,5|207,5$t",new_pos(self.pos.x-14,self.pos.y-20),nil,nil,t,nil,final_boss_pal_fn)
