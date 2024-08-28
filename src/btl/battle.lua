@@ -1,7 +1,4 @@
---ply1,ply2=nil,nil
---show_game_over=f
-mid_pos,potions,max_potions,gold,btl_ended,celebrate=parse_pos"60,81",dget"59",dget"60",dget"58",f,f
-local turn_act_index,acts,btl_active,btl_intro_done,ply_spws,enm_spws=0,{},f,f,{parse_pos"20,90",parse_pos"28,72"},{
+mid_pos,potions,max_potions,gold,btl_ended,celebrate,turn_act_index,acts,btl_active,btl_intro_done,ply_spws,enm_spws=parse_pos"60,81",dget"59",dget"60",dget"58",f,f,0,{},f,f,{parse_pos"20,90",parse_pos"28,72"},{
   parse_pos"75,81",
   parse_pos"83,72",
   parse_pos"91,90",
@@ -11,7 +8,7 @@ local turn_act_index,acts,btl_active,btl_intro_done,ply_spws,enm_spws=0,{},f,f,{
 }
 
 function btl_start()
-  new_delayed_event(60,function() music("0",nil,3) end)
+  new_delayed_event(60,function() music(0,nil,3) end)
   btl_active,acts,ply1,ply2=t,{},
   new_btl_ply(
     confirm_btn,confirm_btn_lbl,player1_controller,
@@ -103,7 +100,17 @@ end
 function btl_draw_objects()
   local accs=accs()
   local sorted_objs=clone(merge(acts,accs,map_accs))
-  sort(sorted_objs, function(a,b) return a.pos.y<b.pos.y end)
+
+  for i=2,#sorted_objs do
+    local j=i
+    while j>=2 and sorted_objs[j].pos.y < sorted_objs[j-1].pos.y do
+      local k=sorted_objs[j]
+      sorted_objs[j]=sorted_objs[j-1]
+      sorted_objs[j-1]=k
+      j-=1
+    end
+  end
+
   draw_act_sec(sorted_objs,"draw_sdw")
   draw_act_sec(sorted_objs,"draw")
   draw_act_sec(sorted_objs,"draw_status_effects")

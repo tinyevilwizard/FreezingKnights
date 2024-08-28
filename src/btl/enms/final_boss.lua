@@ -1,4 +1,4 @@
-init_enms_x_offset,map_x,final_boss_pal_fn=-8,0,function(self) pal(5,0) end
+init_enms_x_offset,map_x,final_boss_pal_fn=-8,0,function() pal(5,0) end
 enms[400]=function(args)
   local a=new_btl_act(args)
   a:set_sts{hp=200}

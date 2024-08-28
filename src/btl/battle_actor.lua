@@ -1,23 +1,14 @@
 function new_btl_act(args)
   local act_in_front,dmg_pos_mod,dmg_pos_mod_counter,dmg_lbl,dmg_lbl_counter,dmg_y_speed,dmg_lbl_col,dmg_lbl_col_sdw,dmg_lbl_prefix,dmg_lbl_pos,hover_t=args.act_in_front,0,0,nil,0,0,9,2,"",parse_pos "0,0",rnd"120"
   local a={
---type="enm",
---name="",
     spw=args.spw,pos=clone(args.spw),
     atk_pos=pos_clone(args.spw,-10),
     pal_fn=args.pal_fn,
---invincible_t=0
---pwr_multi=1,
 --hover=f
---def_mod=0,
---atk_mod=0,
---def_mod_turns=0,
---atk_mod_turns=0,
 --mov_pos=nil,
 --mov_anim=nil,
 --mov_end_anim=nil,
 --mov_end_event=nil,
---mov_spd=0,
 --moving=f,
 --target=nil,
 --acting=f,
@@ -25,12 +16,6 @@ function new_btl_act(args)
 --shake_cam_on_hit=f,
 --sts=nil,
 --active_sts=nil,
---y_vel=0,
---elv=0,
---target_elv=0
---elv_spd=0
---hgt=8,
---wdt=8,
 --air=f,
 --flip_x=f,
 --accs={},
@@ -38,7 +23,6 @@ function new_btl_act(args)
 --anim_manager=nil,
 --dead=f,
 --acns={},
---wlk_spd=1,
 --body_hb=nil,
 --atk_hb=nil,
 --animate_jump=f,
