@@ -115,6 +115,21 @@ function new_btl_ply(btn,btn_lbl,player,player_pal,acns_data,args)
         y_offset=3,
       })
     end
+    add(items,{
+      draw=function(self2,active)
+        if active then
+          sm_tb(49,43,79,self.pal.armor,"⧗skip")
+        end
+      end,
+      hint="skip turn",
+      action=function()
+        new_delayed_event(1, function()
+          self:close_menu(t)
+          self.choosing=f
+          self:end_turn()
+        end)
+      end,
+    })
     self.menu=new_select(items,self,player)
   end
   a.new_target_select_menu=function(self,act_set,multi_select)
