@@ -152,10 +152,6 @@ function ply_acts(inc_dead)
   return find_acts(inc_dead,"ply")
 end
 
-function ply_defending()
-  return btl_turn_act() and btl_turn_act().type=="enm"
-end
-
 function handle_death()
   if #enm_acts()==0 then
     btl_ended=t

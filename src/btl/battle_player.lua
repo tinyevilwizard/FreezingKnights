@@ -34,7 +34,7 @@ function new_btl_ply(btn,btn_lbl,player,player_pal,acns_data,args)
       return nil
     end
 
-    if not self.dead and ply_defending() then
+    if not self.dead and btl_turn_act() and btl_turn_act().type=="enm" then
       if (btnp(btn,player) and not self.air) self:jump(2.75) -- Less heavy alt jump: 2.5
       mv(a.action_btn_prompt,pos_clone(self.spw,-16,-8),2)
     else
