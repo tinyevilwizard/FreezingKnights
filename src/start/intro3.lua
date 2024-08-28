@@ -4,8 +4,8 @@ intro3={
   end_time=430,
   draw=function(self)
     cls(0)
-    local y=40
-    center_print("fEEDBACK | tESTING",y,7)
+    local y=48
+    center_print("sPECIAL tHANKS",y,7)
     line(20,y+7,108,y+7,7)
 
     y+=12
@@ -14,10 +14,6 @@ intro3={
     center_print("pARTYBIRD",y,13)
     y+=9
     center_print("oHcURTAINS",y,13)
-    y+=9
-    center_print("sMELLYfISHsTIKS",y,13)
-    y+=9
-    center_print("PARAk00pa",y,13)
   end,
   update=function(self)
     if btnp(4,0) or btnp(5,0) or btnp(4,1) or btnp(5,1) then
