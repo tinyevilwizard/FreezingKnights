@@ -161,7 +161,7 @@ function new_rest_player(name,player,player_pal,max_hp,acns_data,args,last_ply)
     x+=16
 
     g_swd1_cost=125
-    add(actions,{icon=30,hint="buy weapon: gr. sword ○ "..g_swd1_cost..money_char,desc0="bUY GREAT SWORD FOR "..name..".",desc1="dAMAGES ANY FRONT GROUNDED",desc2="ENEMY. eTREMELY HEAVY.",desc3="dAMAGE: ★★★ ○ cOST: 9♥",btn_x=x,sold_out=function() return self.acns_data.g_swd1==1 end,available=function() return rst.gold>=g_swd1_cost end,event=function()
+    add(actions,{icon=30,hint="buy weapon: gr. sword ○ "..g_swd1_cost..money_char,desc0="bUY GREAT SWORD FOR "..name..".",desc1="dAMAGES ANY FRONT GROUNDED",desc2="ENEMY. eXTREMELY HEAVY.",desc3="dAMAGE: ★★★ ○ cOST: 9♥",btn_x=x,sold_out=function() return self.acns_data.g_swd1==1 end,available=function() return rst.gold>=g_swd1_cost end,event=function()
       pay_cost(g_swd1_cost)
       self.acns_data.g_swd1=1
     end})
@@ -228,7 +228,7 @@ function new_rest_player(name,player,player_pal,max_hp,acns_data,args,last_ply)
 
     ptn_increase_cost=30
     max_total_ptn=dget"16">=1 and 10 or 20
-    add(actions,{icon=29,hint="buy upgrade: potions ○ "..ptn_increase_cost..money_char,desc1="iNCREASES THE MAX AMOUNT OF",desc2=potion_char..". "..potion_char.." ARE REFILLED WHEN",desc3="REACHING A REST AREAS.",btn_x=x,sold_out=function() return rst.max_potions >= max_total_ptn end,available=function() return rst.gold>=ptn_increase_cost end,event=function()
+    add(actions,{icon=29,hint="buy upgrade: potions ○ "..ptn_increase_cost..money_char,desc1="iNCREASES THE MAX AMOUNT OF",desc2=potion_char..". "..potion_char.." ARE REFILLED WHEN",desc3="REACHING A REST AREA.",btn_x=x,sold_out=function() return rst.max_potions >= max_total_ptn end,available=function() return rst.gold>=ptn_increase_cost end,event=function()
       pay_cost(ptn_increase_cost)
       increase_max_potions()
     end})
