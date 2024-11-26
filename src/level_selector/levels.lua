@@ -22,6 +22,7 @@ local type_rest=0
 local type_battle=1
 local type_boss=2
 local type_final_boss=3
+local type_special=4
 
 function load_level(l)
   dset(26,l.map_x)
@@ -97,7 +98,7 @@ local cart_battle_boss7="boss7"
 
 add_level(0,{road1_1},type_rest,-20,14,nil,nil,0,0) -- Out of bound fake level, not selectable
 
-add_level(road1_1,{road1_2},type_battle,1,14,{50,52},cart_battle_special,0,0,f,nil)
+add_level(road1_1,{road1_2},type_special,1,14,{50,52},cart_battle_special,0,0,f,nil)
 add_level(road1_2,{road1_3},type_battle,3,14,{51,51,51},cart_battle_special,1,0,f,nil)
 add_level(road1_3,{road2a_1,road2b_1},type_rest,5,14,nil,cart_rest,0,0,f,nil)
 
@@ -114,7 +115,7 @@ add_level(road3_3,{road3_4},type_battle,10,10,{20,20,20,10,11,11},cart_battle_ma
 add_level(road3_4,{road4_1,road5_1},type_boss,8,10,{20,20,20,200},cart_battle_boss2,0,0,f)
 
 add_level(road4_1,{road4_2,road5_5},type_battle,3,9,{60,40,40},cart_battle_main2,7,0,t,116)
-add_level(road4_2,{road6b_1},type_battle,5,7,{70},cart_battle_special,9,0,t,112)
+add_level(road4_2,{road6b_1},type_special,5,7,{70},cart_battle_special,9,0,t,112)
 
 add_level(road5_1,{road5_2},type_rest,5,11,nil,cart_rest,2,0,t,nil,{road4_1,road4_2})
 add_level(road5_2,{road5_3},type_battle,3,11,{20,40,40},cart_battle_main2,7,0,t,nil,{road4_1,road4_2})

@@ -30,6 +30,8 @@ level_selector={
         mset(level.x,level.y,183)
       elseif level.type==type_boss then
         mset(level.x,level.y,185)
+      elseif level.type==type_special then
+        mset(level.x,level.y,129)
       elseif level.type==type_final_boss then
         mset(level.x,level.y,192)
         mset(level.x+1,level.y,193)

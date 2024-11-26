@@ -2,8 +2,7 @@ local draw_attack_circle=function(self,act)
   local x,y,r,c,c2,line_lgt,half_line_lgt=act.target.pos.x,act.target.pos.y-6,self.t,act.target.dead and 12 or 8,act.target.dead and 1 or 2,4,2
   circ(x,y,r,c2)
   circ(x,y,r*2,c)
-  circ(x,y,r*2,c)
-  spr(act.target.dead and 133 or 132,x-4+rnd(split("-1,0,0,0,0,0,0,1")),y-6+rnd(split("-1,0,0,0,0,0,0,1")))
+  spr(act.target.dead and 133 or 132,x-4+rnd(split"-1,0,0,0,0,0,0,1"),y-6+rnd(split"-1,0,0,0,0,0,0,1"))
 end
 acns.ghost_boss_absorb=function(act)
   local a=new_acn(act,0,"absorb",function() return enm_acts(t,act) end)

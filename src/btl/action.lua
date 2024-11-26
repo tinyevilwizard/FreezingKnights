@@ -2,14 +2,6 @@ acns={}
 
 function new_acn(act,pwr,anim,act_set,return_after)
   acn={}
---acn.name=nil
---acn.act=nil
---acn.acting=f
---acn.done_acting=f
---acn.target_reached=f
---acn.started_return_to_spw
---acn.started_run_to_target=f
---acn.inc_dead=f
   acn.cost,acn.anim,acn.start_anim,acn.accs,acn.pwr,acn.act_set=0,anim,anim,{},pwr,act_set or ply_acts
 
   if return_after then
@@ -76,7 +68,6 @@ function new_acn(act,pwr,anim,act_set,return_after)
     act.selected_acn.done_acting=t
   end
 
-  -- For use in action update function
   acn.update_anim,acn.update_finish=function(self,anim)
     if self.acting and not self.done_acting then
       act:play_or_continue_anim(anim)

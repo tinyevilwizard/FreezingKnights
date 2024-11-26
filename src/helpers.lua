@@ -1,4 +1,4 @@
-load_mode,version=1,"V1.2.0"  --1 for .p8 files, 2 for BBS cart ID
+load_mode,version=1,"V1.3.0"  --1 for .p8 files, 2 for BBS cart ID
 f,t,potion_char,money_char=false,true,"\^:3e1c3a3e3e000000","\^:1c323a3e1c000000"
 
 menuitem(1,"main menu",function() load_cart"start" end)
@@ -13,18 +13,6 @@ end
 
 function set_ply_colors(ply_pal)
   pal{1,ply_pal.mouth,ply_pal.eyes,4,5,6,7,ply_pal.details,9,10,2,ply_pal.armor,13,ply_pal.skin_sdw,ply_pal.skin}
-end
-
-function sort(tb,fn)
-  for i=2,#tb do
-    local j=i
-    while j>=2 and fn(tb[j],tb[j-1]) do
-      local k=tb[j]
-      tb[j]=tb[j-1]
-      tb[j-1]=k
-      j-=1
-    end
-  end
 end
 
 function clone(tb)
@@ -169,7 +157,6 @@ function update_shake()
   shake_dur=max(0,shake_dur-1)
 end
 
--- fade_step,fading_dir,fading_wait=0,0,0
 function fade_in(wait,ended_event)
   fading_dir,fade_step,fading_wait,on_fading_out_ended,on_fading_in_ended=-1,3,wait or 40,nil,ended_event
 end

@@ -26,16 +26,16 @@ function new_btl_ply(btn,btn_lbl,player,player_pal,acns_data,args)
     if (self.menu) self.menu:update()
 
     if not self.intro_done then
-      self:play_or_continue_anim "run"
+      self:play_or_continue_anim"run"
       if mv(self,self.spw,1.25) then
         self.intro_done=t
-        self:play_anim "idle"
+        self:play_anim"idle"
       end
       return nil
     end
 
-    if not self.dead and ply_defending() then
-      if (btnp(btn,player) and not self.air) self:jump(2.75) -- Less heavy alt jump: 2.5
+    if not self.dead and btl_turn_act() and btl_turn_act().type=="enm" then
+      if (btnp(btn,player) and not self.air) self:jump(2.75)
       mv(a.action_btn_prompt,pos_clone(self.spw,-16,-8),2)
     else
       mv(a.action_btn_prompt,pos_clone(self.spw,-40,-8),3)
@@ -91,16 +91,17 @@ function new_btl_ply(btn,btn_lbl,player,player_pal,acns_data,args)
           else
             self2.y_offset=max(self2.y_offset-2.5,3)
           end
-          rectfill(a.btn_x,self2.y_offset,a.btn_x+13,self2.y_offset+27,1)
+          local y_offset,btn_x=self2.y_offset,a.btn_x
+          rectfill(btn_x,y_offset,btn_x+13,y_offset+27,1)
           pal(13,0)
-          spr(12,a.btn_x,self2.y_offset+28)
-          spr(12,a.btn_x+6,self2.y_offset+28,1,1,t)
-          spr(a.icon,a.btn_x+3,self2.y_offset+10,1,2)
+          spr(12,btn_x,y_offset+28)
+          spr(12,btn_x+6,y_offset+28,1,1,t)
+          spr(a.icon,btn_x+3,y_offset+10,1,2)
           pal()
           if (active) then
-            ? a.cost_str,a.btn_x+2,self2.y_offset+2,lbl_c
-            sspr(101,8,3,5,a.btn_x+13,self2.y_offset+9)
-            sspr(101,8,3,5,a.btn_x-2,self2.y_offset+9,3,5,t)
+            ? a.cost_str,btn_x+2,y_offset+2,lbl_c
+            sspr(101,8,3,5,btn_x+13,y_offset+9)
+            sspr(101,8,3,5,btn_x-2,y_offset+9,3,5,t)
           end
         end,
         hint=a.hint,
@@ -114,6 +115,21 @@ function new_btl_ply(btn,btn_lbl,player,player_pal,acns_data,args)
         y_offset=3,
       })
     end
+    add(items,{
+      draw=function(self2,active)
+        if active then
+          sm_tb(49,43,79,self.pal.armor,"⧗skip")
+        end
+      end,
+      hint="skip turn",
+      action=function()
+        new_delayed_event(1, function()
+          self:close_menu(t)
+          self.choosing=f
+          self:end_turn()
+        end)
+      end,
+    })
     self.menu=new_select(items,self,player)
   end
   a.new_target_select_menu=function(self,act_set,multi_select)
